@@ -8,12 +8,11 @@
 header{
     height: 160px;
     width: 100%;
-    background-color: #0D1821;
     display: flex;
     align-items: center;
 }
 header img{
-    margin-left: 2%;
+    margin-left: 10%;
     height: 120px;
 }
 header h1{
@@ -21,7 +20,9 @@ header h1{
     font-size: xx-large;
     color: #EAEBED;
 }
-#main{  
-    background-color: #4C5F6B;
-    height: 1000px;
+footer{
+    height: 160px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }

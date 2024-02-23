@@ -1,0 +1,16 @@
+header{
+    background-color: #465362;
+}
+#main{  
+    background-color: #BCB8B1;
+    height: 1000px;
+}
+#mainButton {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    margin: 4%;
+}
+#mainButton a img{
+    height: 300px;
+}
