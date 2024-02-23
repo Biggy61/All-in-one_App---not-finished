@@ -1,0 +1,2 @@
+nacist data, a vybrat nejake z pole
+vycentrovat footer
