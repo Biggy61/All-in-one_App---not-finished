@@ -10,7 +10,11 @@ header{
     text-decoration: none;
     border: none;
     margin: 4%;
+    transition: 0.5s ease ;
 }
 #mainButton a img{
     height: 300px;
+}
+#mainButton:hover{
+    transform: scale(1.3);
 }
