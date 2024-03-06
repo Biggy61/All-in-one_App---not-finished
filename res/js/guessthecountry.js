@@ -1,6 +1,6 @@
 
 const start = document.getElementById("startBtn");
-const body = document.getElementById("country");
+
 //SPRÁVNÁ ODPOVĚĎ NA OTÁZKU--------------------------
 let correctValue = "";
 let questionNumber = 0;
@@ -9,9 +9,9 @@ let questionNumber = 0;
 /*
 //Class
 class Guessthecountry{
-    constructor(countryID, country){
+    static imgData;
+    constructor(countryID){
         this.countryID = countryID;
-        this.name = this.country;
         this.img = new Image();
         this.img.src = this.path;
         console.log(this.img.src);
@@ -20,7 +20,6 @@ class Guessthecountry{
 }
 */
 //USER ODPOVĚĎ NA OTÁZKU-----------------------------
-let answerValue = "";
 //co napise user do divu
 const input = document.getElementById("input");
 const inputValue = input.value;
@@ -35,19 +34,24 @@ const showElement = (element) => {
     element.style.display = "initial"};
  
 
-//tady konec
-function fn1() {
-    answerValue = inputValue;
-    
+//funkce na zjisteni toho co user napsal do inputu--------------------------------
+function userAnswer() {
+    const answerValue = document.querySelector('input').value;
+    console.log(answerValue);
 }
 
-//kdyz user da enter
+const country = document.getElementById("country");
+//kdyz user da enter----------------------------
 input.addEventListener("keypress", (e) => {
     if (e.key === 'Enter') {
-    fn1();
-    //smaze to co je napsane v poli kdyz user zmackne enter
-     e.preventDefault();
+    userAnswer();
+    buildGame();
+    //zabrani refreshnuti stranky--------------------------------------------------------
+    e.preventDefault();
+    //smaze to co je napsane v poli kdyz user zmackne enter-------------------------------
      e.currentTarget.value = "";
+    
+    
     }
 
 
@@ -56,9 +60,10 @@ input.addEventListener("keypress", (e) => {
 
 //GAME----------------------
 const buildGame = async () =>{
-    const file = await fetch("/res/data/guessthecountry.json");
+    const file = await fetch("./res/data/guessthecountry.json");
     const data = await file.json();
 
+country.style.backgroundImage = (data[actualNum].path);
 //GENERATING RANDOM NUMBNERS----------------------
 let generatedNumbers = [];
 function generateRandomNumber() {
@@ -69,7 +74,7 @@ function generateRandomNumber() {
 
     let randomNumber;
     do {
-        randomNumber = Math.floor(Math.random() * data.length); //náhodné číslo od 0 do 20
+        randomNumber = Math.floor(Math.random() * data.length); //náhodné číslo
     } while (generatedNumbers.includes(randomNumber)); // Pokud se číslo již nachází v poli, generuje nové
 
     generatedNumbers.push(randomNumber); // Přidání číslo do pole generovaných čísel
@@ -78,19 +83,23 @@ function generateRandomNumber() {
 
     let actualNum = generateRandomNumber();
     console.log( "cislo otazky:" + actualNum);
-    if (questionNumber < 10) {
-            /*vypíše do konzole jakou odpověď uživatel zvolil*/
+
+         
+    
+   
+    /*
+    if (questionNumber < data.lenght) {
+            //vypíše do konzole jakou odpověď uživatel zvolil
     console.log("Odpověď: " + answerValue);
 
-    /*zobrazí se aktuální otázka*/
     //body.innerHTML = new Guessthecountry(actualNum);
-    /*js zjistí správnou odpověď na otázku*/
+    //js zjistí správnou odpověď na otázku
     correctValue = data[actualNum].country;
     console.log(correctValue);
     return correctValue;
+    
     }
     else{
         
-    } 
+    } */
 };
-
