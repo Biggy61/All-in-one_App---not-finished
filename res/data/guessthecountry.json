@@ -1,6 +1,6 @@
 [
     {
-          "countryID" : 0,
+          "countryID" : 1,
           "country" : "Slovakia",
           "path" : "./res/img/guessthecountry/Slovakia.png",
           "size": {
@@ -9,7 +9,7 @@
           }
     },
     {
-        "countryID" : 1,
+        "countryID" : 2,
         "country" : "Uganda",
         "path" : "./res/img/guessthecountry/Uganda.png",
         "size": {

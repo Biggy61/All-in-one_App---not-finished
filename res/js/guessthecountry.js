@@ -40,7 +40,7 @@ function userAnswer() {
     console.log(answerValue);
 }
 
-const country = document.getElementById("country");
+
 //kdyz user da enter----------------------------
 input.addEventListener("keypress", (e) => {
     if (e.key === 'Enter') {
@@ -50,8 +50,6 @@ input.addEventListener("keypress", (e) => {
     e.preventDefault();
     //smaze to co je napsane v poli kdyz user zmackne enter-------------------------------
      e.currentTarget.value = "";
-    
-    
     }
 
 
@@ -63,7 +61,8 @@ const buildGame = async () =>{
     const file = await fetch("./res/data/guessthecountry.json");
     const data = await file.json();
 
-country.style.backgroundImage = (data[actualNum].path);
+    
+
 //GENERATING RANDOM NUMBNERS----------------------
 let generatedNumbers = [];
 function generateRandomNumber() {
@@ -84,7 +83,10 @@ function generateRandomNumber() {
     let actualNum = generateRandomNumber();
     console.log( "cislo otazky:" + actualNum);
 
-         
+// document.getElementById("country").style.backgroundImage = "url()";
+ 
+
+ //country.style.backgroundImage = (data[actualNum].path);        
     
    
     /*
